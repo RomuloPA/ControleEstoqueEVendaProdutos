@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="cadastro_produtos.css">
+        <link rel="stylesheet" href="produtos.css">
         <title>Cadatro de Produtos</title>
     </head>
     <body>
@@ -15,12 +15,12 @@
 
             try {
                 $conexao = new PDO("mysql:host=$servidor;dbname=$banco", $usuario, $senha);
-
+                
                 // Configurar o modo de erro para Exception
                 $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+                
                 // Consulta SQL
-                $sqlDadosProdutos = "SELECT id, marca, modelo, cor, numero_serie, imei_1, imei_2, valor_compra, data_compra, fornecedor, situacao, observacoes FROM cadastro_produtos";
+                $sqlDadosProdutos = ("SELECT id, marca, modelo, cor, numero_serie, imei_1, imei_2, valor_compra, data_compra, fornecedor, situacao, observacoes FROM cadastro_produtos");
                 
                 // Preparar a consulta
                 $stmt = $conexao->prepare($sqlDadosProdutos);
@@ -79,7 +79,7 @@
                         echo "<td>" . $produto['fornecedor'] . "</td>";
                         echo "<td>" . $produto['situacao'] . "</td>";
                         echo "<td>" . $produto['observacoes'] . "</td>";
-                        echo "<td><a href='alterar_produto.php?id=" . $produto['id'] . "'>Alterar</a> | <a href='excluir_produto.php?id=" . $produto['id'] . "'>Excluir</a></td>";
+                        echo "<td><a href='alterar_produto.php?id=" . $produto['id'] . "'>Alterar</a> | <a href='#' onclick='confirmarExclusao(" . $produto['id'] . ")'>Excluir</a></td>";
                         echo "</tr>";
                     }
             ?>
@@ -90,5 +90,14 @@
                 }
             ?>
         </table>
+
+        <script>
+            function confirmarExclusao(id) {
+                var confirmacao = confirm("Tem certeza que deseja excluir este produto?");
+                if (confirmacao) {
+                    window.location.href = "excluir_produto.php?id=" + id;
+                }
+            }
+        </script>
     </body>
 </html>
