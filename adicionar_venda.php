@@ -67,51 +67,52 @@
         <div class="container">
             <h1>Adicionar Venda</h1>
             
-            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+            <form action="" method="post">
                 <label for="id_produto">ID do Produto:</label>
                 <input type="text" id="id_produto" name="id_produto" onchange="buscarValorCompra()" required>
 
                 <label for="valor_compra">Valor da Compra:</label>
-                <input type="text" id="valor_compra" name="valor_compra" required>
-
+                <input type="text" id="valor_compra" name="valor_compra" readonly>
+                
                 <label for="valor_venda">Valor da Venda:</label>
-                <input type="text" id="valor_venda" name="valor_venda" required>
-
+                <input type="text" id="valor_venda" name="valor_venda" readonly>
+                
                 <label for="valor_dinheiro_PIX">Valor em dinheiro/PIX:</label>
-                <input type="text" id=" " name="valor_dinheiro_PIX" required>
-
+                <input type="text" id="valor_dinheiro_PIX" name="valor_dinheiro_PIX" oninput="calcularVendaELucro()" required>
+                
                 <label for="valor_cartao_debito">Valor no Cartão de Débito:</label>
                 <input type="text" id="valor_cartao_debito" name="valor_cartao_debito" required>
-
+                
                 <label for="valor_cartao_credito">Valor no Cartão de Crédito:</label>
                 <input type="text" id="valor_cartao_credito" name="valor_cartao_credito" required>
-
+                
                 <label for="numero_parcelas">Quantidade de Parcelas:</label>
                 <input type="text" id="numero_parcelas" name="numero_parcelas" required>
-
-                <label for="valor_maquininha">Valor da Recebido pela Maquininha:</label>
-                <input type="text" id="valor_maquininha" name="valor_maquininha" required>
-
+                
+                <label for="valor_maquininha">Valor Recebido pela Maquininha:</label>
+                <input type="text" id="valor_maquininha" name="valor_maquininha" oninput="calcularVendaELucro()" required>
+                
                 <label for="lucro">Lucro:</label>
-                <input type="text" id="lucro" name="lucro" required>
+                <input type="text" id="lucro" name="lucro" readonly>
 
                 <label for="data_venda">Data da Venda:</label>
                 <input type="date" id="data_venda" name="data_venda" required>
-
+                
                 <label for="cliente">Cliente:</label>
                 <input type="text" id="cliente" name="cliente" required>
-
+                
                 <button type="submit">Adicionar Produto</button>
             </form>
             
-            <a href="index.php"><button>Voltar para página inicial</button></a>
+            <a href="vendas.php"><button>Voltar para página de vendas</button></a>
         </div>
-
+        
         <script>
+            // 
             var valoresCompra = <?php echo json_encode($resultadosProdutos); ?>;
             function buscarValorCompra() {
-                var idProduto = document.getElementById("id_produto").value;
-                var valorCompraInput = document.getElementById("valor_compra");
+                var idProduto = document.querySelector("#id_produto").value;
+                var valorCompraInput = document.querySelector("#valor_compra");
 
                 // Encontrar o valor de compra correspondente ao ID do produto
                 var produto = valoresCompra.find(function(produto) {
@@ -124,6 +125,20 @@
                 } else {
                     valorCompraInput.value = "";
                 }
+            }
+
+            function calcularVendaELucro() {
+                var valorDinheiroPIX = parseFloat(document.querySelector("#valor_dinheiro_PIX").value) || 0;
+                var valorMaquininha = parseFloat(document.querySelector("#valor_maquininha").value) || 0;
+
+                var valorVenda = valorDinheiroPIX + valorMaquininha;
+                var valorCompra = parseFloat(document.querySelector("#valor_compra").value) || 0;
+
+                var lucro = valorVenda - valorCompra;
+
+                // Atualize os campos e exiba os valores calculados
+                document.querySelector("#valor_venda").value = valorVenda.toFixed(2);
+                document.querySelector("#lucro").value = lucro.toFixed(2);
             }
         </script>
     </body>
