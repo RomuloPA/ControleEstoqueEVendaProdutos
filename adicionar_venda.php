@@ -23,6 +23,7 @@
                 $resultadosProdutos = $stmtProdutos->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // Captura os dados do formulário
                     $id_produto = $_POST["id_produto"];
                     $valor_venda = $_POST["valor_venda"];
                     $valor_dinheiro_PIX = $_POST["valor_dinheiro_PIX"];
@@ -50,10 +51,29 @@
                         if (!$produtoEncontrado) {
                             echo "<script>alert('Produto não encontrado. Venda não adicionada.');</script>";
                         } else {
-                            $stmtVendas = $conexao->prepare("INSERT INTO vendas (id_produto, valor_venda, valor_dinheiro_PIX, valor_cartao_debito, valor_cartao_credito, numero_parcelas, valor_maquininha, lucro, data_venda, cliente) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                            $stmtVendas->execute([$id_produto, $valor_venda, $valor_dinheiro_PIX, $valor_cartao_debito, $valor_cartao_credito, $numero_parcelas, $valor_maquininha, $lucro, $data_venda, $cliente]);
+                            // Prepara e executa a consulta SQL para inserção dos dados
+                            $sqlIncercaoVendas = $conexao->prepare("INSERT INTO vendas (id_produto, valor_venda, valor_dinheiro_PIX, valor_cartao_debito, valor_cartao_credito, numero_parcelas, valor_maquininha, lucro, data_venda, cliente) VALUES (:id_produto, :valor_venda, :valor_dinheiro_PIX, :valor_cartao_debito, :valor_cartao_credito, :numero_parcelas, :valor_maquininha, :lucro, :data_venda, :cliente)");
 
-                            echo "<script>alert('Venda adicionada com sucesso!');</script>";
+                            $stmt = $conexao->prepare($sqlInsercaoVendas);
+
+                            // Bind dos parâmetros
+                            $stmt->bindParam(':id_produto', $id_produto);
+                            $stmt->bindParam(':valor_venda', $valor_venda);
+                            $stmt->bindParam(':valor_dinheiro_PIX', $valor_dinheiro_PIX);
+                            $stmt->bindParam(':valor_cartao_debito', $valor_cartao_debito);
+                            $stmt->bindParam(':valor_cartao_credito', $valor_cartao_credito);
+                            $stmt->bindParam(':numero_parcelas', $numero_parcelas);
+                            $stmt->bindParam(':valor_maquininha', $valor_maquininha);
+                            $stmt->bindParam(':lucro', $lucro);
+                            $stmt->bindParam(':data_venda', $data_venda);
+                            $stmt->bindParam(':cliente', $cliente);
+
+                            // Executa a consulta preparada
+                            if ($stmt->execute()) {
+                                echo "<script>alert('Venda adicionada com sucesso!');</script>";
+                            } else {
+                                echo "<script>alert('Erro ao inserir dados: " . $stmt->errorInfo()[2] . "');</script>";
+                            }
                         }
                     } catch (PDOException $e) {
                         echo "<script>alert('Erro ao adicionar a venda: " . $e->getMessage() . "');</script>";

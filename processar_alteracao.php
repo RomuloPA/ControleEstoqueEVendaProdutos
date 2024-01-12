@@ -29,7 +29,7 @@ try {
             $novasObservacoes = $_POST['observacoes'];
 
             // Atualizar os dados do produto no banco de dados
-            $sqlAtualizarProduto = "UPDATE cadastro_produtos SET
+            $sqlAtualizarProduto = ("UPDATE cadastro_produtos SET
                 marca = :marca,
                 modelo = :modelo,
                 cor = :cor,
@@ -41,7 +41,7 @@ try {
                 fornecedor = :fornecedor,
                 situacao = :situacao,
                 observacoes = :observacoes
-                WHERE id = :id";
+                WHERE id = :id");
 
             $stmtAtualizarProduto = $conexao->prepare($sqlAtualizarProduto);
             $stmtAtualizarProduto->bindParam(':id', $produtoId, PDO::PARAM_INT);

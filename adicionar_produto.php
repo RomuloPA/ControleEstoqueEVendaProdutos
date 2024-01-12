@@ -3,8 +3,8 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Adicionar Produto</title>
             <link rel="stylesheet" href="adicionar_produto.css">
+            <title>Adicionar Produto</title>
         </head>
         <body>
             <?php
@@ -36,7 +36,7 @@
                         $observacoes = $_POST["observacoes"];
 
                         // Prepara e executa a consulta SQL para inserção dos dados
-                        $sqlInsercaoProdutos = "INSERT INTO cadastro_produtos (marca, modelo, cor, numero_serie, imei_1, imei_2, valor_compra, data_compra, fornecedor, situacao, observacoes) VALUES (:marca, :modelo, :cor, :numeroSerie, :imei1, :imei2, :valorCompra, :dataCompra, :fornecedor, :situacao, :observacoes)";
+                        $sqlInsercaoProdutos = ("INSERT INTO cadastro_produtos (marca, modelo, cor, numero_serie, imei_1, imei_2, valor_compra, data_compra, fornecedor, situacao, observacoes) VALUES (:marca, :modelo, :cor, :numeroSerie, :imei1, :imei2, :valorCompra, :dataCompra, :fornecedor, :situacao, :observacoes)");
 
                         $stmt = $conexao->prepare($sqlInsercaoProdutos);
 
