@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="pt-br">
         <head>
             <meta charset="UTF-8">
@@ -20,7 +20,7 @@
                     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                     // Verifica se o formulário foi enviado
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") { // validar de qual formulário está sendo enviado o POST
 
                         // Captura os dados do formulário
                         $marca = $_POST["marca"];
