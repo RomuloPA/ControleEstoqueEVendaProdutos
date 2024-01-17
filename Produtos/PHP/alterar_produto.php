@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="alterar_produto.css">
+        <link rel="stylesheet" href="../CSS/alterar_produto.css">
         <title>Alterar Produto</title>
     </head>
     <body>

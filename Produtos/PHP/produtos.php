@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="produtos.css">
+        <link rel="stylesheet" href="../CSS/produtos.css">
         <title>Cadatro de Produtos</title>
     </head>
     <body>
@@ -40,7 +40,7 @@
 
         <a href="adicionar_produto.php"><button id="adicionar-produto-btn">Adicionar Produto</button></a>
 
-        <a href="index.php"><button id="adicionar-produto-btn">Voltar para página inicial</button></a>
+        <a href="../../Index/index.php"><button id="adicionar-produto-btn">Voltar para página inicial</button></a>
 
         <table>
             <thead>

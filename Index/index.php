@@ -10,8 +10,8 @@
         <h1>Controle de estoque e venda de produtos</h1>
         <p>Escolha uma opção:</p>
         
-        <a href="produtos.php"><button>Dados dos Produtos</button></a>
-        <a href="vendas.php"><button>Vendas</button></a>
-        <a href="balanco.php"><button>Balanço</button></a>
+        <a href="../Produtos/PHP/produtos.php"><button>Dados dos Produtos</button></a>
+        <a href="../Vendas/PHP/vendas.php"><button>Vendas</button></a>
+        <a href="../Balanco/PHP/balanco.php"><button>Balanço</button></a>
     </body>
 </html>
