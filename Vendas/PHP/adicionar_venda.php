@@ -88,7 +88,7 @@
             <h1>Adicionar Venda</h1>
             
             <form action="" method="post">
-                <label for="id_produto">ID do Produto:</label>
+                <label for="id_produto">* ID do Produto:</label>
                 <input type="text" id="id_produto" name="id_produto" onchange="buscarValorCompra()" required>
 
                 <label for="valor_compra">Valor da Compra:</label>
@@ -98,27 +98,27 @@
                 <input type="text" id="valor_venda" name="valor_venda" readonly>
                 
                 <label for="valor_dinheiro_PIX">Valor em dinheiro/PIX:</label>
-                <input type="text" id="valor_dinheiro_PIX" name="valor_dinheiro_PIX" oninput="calcularVendaELucro()" required>
+                <input type="text" id="valor_dinheiro_PIX" name="valor_dinheiro_PIX" oninput="calcularVendaELucro()">
                 
                 <label for="valor_cartao_debito">Valor no Cartão de Débito:</label>
-                <input type="text" id="valor_cartao_debito" name="valor_cartao_debito" required>
+                <input type="text" id="valor_cartao_debito" name="valor_cartao_debito">
                 
                 <label for="valor_cartao_credito">Valor no Cartão de Crédito:</label>
-                <input type="text" id="valor_cartao_credito" name="valor_cartao_credito" required>
+                <input type="text" id="valor_cartao_credito" name="valor_cartao_credito">
                 
                 <label for="numero_parcelas">Quantidade de Parcelas:</label>
-                <input type="text" id="numero_parcelas" name="numero_parcelas" required>
+                <input type="text" id="numero_parcelas" name="numero_parcelas">
                 
                 <label for="valor_maquininha">Valor Recebido pela Maquininha:</label>
-                <input type="text" id="valor_maquininha" name="valor_maquininha" oninput="calcularVendaELucro()" required>
+                <input type="text" id="valor_maquininha" name="valor_maquininha" oninput="calcularVendaELucro()">
                 
                 <label for="lucro">Lucro:</label>
                 <input type="text" id="lucro" name="lucro" readonly>
 
-                <label for="data_venda">Data da Venda:</label>
+                <label for="data_venda">* Data da Venda:</label>
                 <input type="date" id="data_venda" name="data_venda" required>
                 
-                <label for="cliente">Cliente:</label>
+                <label for="cliente">* Cliente:</label>
                 <input type="text" id="cliente" name="cliente" required>
                 
                 <button type="submit">Adicionar Produto</button>

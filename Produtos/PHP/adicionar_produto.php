@@ -71,33 +71,33 @@
                 <!-- Formulário para adicionar um novo produto -->
                 <form action="" method="post">
                     <label for="marca">Marca:</label>
-                    <input type="text" id="marca" name="marca" required>
+                    <input type="text" id="marca" name="marca">
                     
-                    <label for="modelo">Modelo:</label>
+                    <label for="modelo">* Modelo:</label>
                     <input type="text" id="modelo" name="modelo" required>
 
                     <label for="cor">Cor:</label>
-                    <input type="text" id="cor" name="cor" required>
+                    <input type="text" id="cor" name="cor">
 
                     <label for="numero_serie">Número de Série:</label>
-                    <input type="text" id="numero_serie" name="numero_serie" required>
+                    <input type="text" id="numero_serie" name="numero_serie">
 
                     <label for="imei_1">IMEI 1:</label>
-                    <input type="text" id="imei_1" name="imei_1" required>
+                    <input type="text" id="imei_1" name="imei_1">
 
                     <label for="imei_2">IMEI 2:</label>
-                    <input type="text" id="imei_2" name="imei_2" required>
+                    <input type="text" id="imei_2" name="imei_2">
 
-                    <label for="valor_compra">Valor:</label>
+                    <label for="valor_compra">* Valor:</label>
                     <input type="text" id="valor_compra" name="valor_compra" required>
 
-                    <label for="data_compra">Data da Compra:</label>
+                    <label for="data_compra">* Data da Compra:</label>
                     <input type="date" id="data_compra" name="data_compra" required>
 
-                    <label for="fornecedor">Fornecedor:</label>
+                    <label for="fornecedor">* Fornecedor:</label>
                     <input type="text" id="fornecedor" name="fornecedor" required>
 
-                    <label for="situacao">Status:</label>
+                    <label for="situacao">* Status:</label>
                     <select id="situacao" name="situacao" required>
                         <option value="disponivel">Disponível</option>
                         <option value="indisponivel">Indisponível</option>

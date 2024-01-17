@@ -54,8 +54,8 @@
             <label for="marca">Marca:</label>
             <input type="text" id="marca" name="marca" value="<?php echo $produto['marca']; ?>">
 
-            <label for="modelo">Modelo:</label>
-            <input type="text" id="modelo" name="modelo" value="<?php echo $produto['modelo']; ?>">
+            <label for="modelo">* Modelo:</label>
+            <input type="text" id="modelo" name="modelo" value="<?php echo $produto['modelo']; ?>" required>
 
             <label for="cor">Cor:</label>
             <input type="text" id="cor" name="cor" value="<?php echo $produto['cor']; ?>">
@@ -69,17 +69,17 @@
             <label for="imei_2">IMEI 2:</label>
             <input type="text" id="imei_2" name="imei_2" value="<?php echo $produto['imei_2']; ?>">
 
-            <label for="valor_compra">Valor Compra:</label>
-            <input type="text" id="valor_compra" name="valor_compra" value="<?php echo $produto['valor_compra']; ?>">
+            <label for="valor_compra">* Valor Compra:</label>
+            <input type="text" id="valor_compra" name="valor_compra" value="<?php echo $produto['valor_compra']; ?>" required>
 
-            <label for="data_compra">Data da Compra:</label>
-            <input type="date" id="data_compra" name="data_compra" value="<?php echo $produto['data_compra']; ?>">
+            <label for="data_compra">* Data da Compra:</label>
+            <input type="date" id="data_compra" name="data_compra" value="<?php echo $produto['data_compra']; ?>" required>
 
-            <label for="fornecedor">Fornecedor:</label>
-            <input type="text" id="fornecedor" name="fornecedor" value="<?php echo $produto['fornecedor']; ?>">
+            <label for="fornecedor">* Fornecedor:</label>
+            <input type="text" id="fornecedor" name="fornecedor" value="<?php echo $produto['fornecedor']; ?>" required>
 
-            <label for="situacao">Status:</label>
-            <select id="situacao" name="situacao">
+            <label for="situacao">* Status:</label>
+            <select id="situacao" name="situacao" required>
                 <option value="disponivel" <?php echo ($produto['situacao'] == 'disponivel') ? 'selected' : ''; ?>>Disponível</option>
                 <option value="indisponivel" <?php echo ($produto['situacao'] == 'indisponivel') ? 'selected' : ''; ?>>Indisponível</option>
                 <option value="vendido" <?php echo ($produto['situacao'] == 'vendido') ? 'selected' : ''; ?>>Vendido</option>
